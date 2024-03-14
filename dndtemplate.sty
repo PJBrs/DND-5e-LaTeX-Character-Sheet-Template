@@ -1,12 +1,27 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
 \ProvidesPackage{dndtemplate}[2021/08/07 DnD Character Template]
 
-\usepackage{fontspec}
+\ifpdftex
+  \usepackage[pspdf={-dALLOWPSTRANSPARENCY -dNOSAFER},cleanup=,crop=off,runs=2,pdf]{pstricks,auto-pst-pdf}
+  %\usepackage{pst-all}
+  %\usepackage{auto-pst-pdf}
+\else
+  \usepackage{fontspec}
+  \usepackage{pstricks}
+\fi
+
 \usepackage{ifthen}
-\usepackage{pstricks}
+
+\ifLuaTeX
+  \protected\def\pdfmapfile {\pdfextension mapfile }
+\fi
 
 % DEFINE FONT FOR USER INPUTTED TEXT
-\newfontfamily\entryfont{Kalam}[Path=template/fonts/,Extension=.ttf,UprightFont=Kalam-Regular,BoldFont=Kalam-Bold]
+\pdfmapfile{+kalam}
+\newcommand{\entryfont}{\fontencoding{T1}\fontfamily{kalam}\selectfont}
+
+%\newfontfamily\entryfont{Kalam}[Path=template/fonts/,Extension=.ttf,UprightFont=Kalam-Regular,BoldFont=Kalam-Bold]
+%\newcommand\entryfont{}
 
 % HEADER BACKGROUND COLOR AND OPACITY
 \newrgbcolor{header-background-color}{0.87058824 0.87450981 0.87450981}
