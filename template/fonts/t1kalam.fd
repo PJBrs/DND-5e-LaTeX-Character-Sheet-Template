@@ -1,0 +1,20 @@
+\ProvidesFile{t1kalam.fd}
+[2024/03/14 font definitions for T1/kalam.]
+\DeclareFontFamily{T1}{kalam}{}
+\DeclareFontShape{T1}{kalam}{m} {n} {<-> kalammn8t } {}
+\DeclareFontShape{T1}{kalam}{b} {n} {<-> kalambn8t } {}
+\DeclareFontShape{T1}{kalam}{m} {it}{<-> ssub * kalam/m/n } {}
+\DeclareFontShape{T1}{kalam}{b} {it}{<-> ssub * kalam/b/n } {}
+\DeclareFontShape{T1}{kalam}{m} {sc}{<-> ssub * kalam/b/n} {}
+\DeclareFontShape{T1}{kalam}{m} {sl}{<-> ssub * kalam/m/n}{}
+\DeclareFontShape{T1}{kalam}{sb}{n} {<-> ssub * kalam/b/n} {}
+\DeclareFontShape{T1}{kalam}{sb}{sc}{<-> ssub * kalam/b/n} {}
+\DeclareFontShape{T1}{kalam}{sb}{sl}{<-> ssub * kalam/b/n}{}
+\DeclareFontShape{T1}{kalam}{sb}{it}{<-> ssub * kalam/b/n}{}
+\DeclareFontShape{T1}{kalam}{b}{sc} {<->ssub * kalam/b/n} {}
+\DeclareFontShape{T1}{kalam}{b}{sl} {<->ssub * kalam/b/n} {}
+\DeclareFontShape{T1}{kalam}{bx}{n} {<->ssub * kalam/b/n} {}
+\DeclareFontShape{T1}{kalam}{bx}{sc}{<->ssub * kalam/b/n} {}
+\DeclareFontShape{T1}{kalam}{bx}{sl}{<->ssub * kalam/b/n} {}
+\DeclareFontShape{T1}{kalam}{bx}{it}{<->ssub * kalam/b/n} {}
+\endinput
