@@ -1,14 +1,35 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
 \ProvidesPackage{dndtemplate}[2021/08/07 DnD Character Template]
 
-\usepackage{fontspec}
 \usepackage{ifthen}
-\usepackage{pstricks}
 \usepackage{xstring}
 \usepackage{ragged2e}
 
-% DEFINE FONT FOR USER INPUTTED TEXT
-\newfontfamily\entryfont{Kalam}[Path=template/fonts/,Extension=.ttf,UprightFont=Kalam-Regular,BoldFont=Kalam-Bold]
+\ifpdftex
+  % Work around incompatibility between preview and hyperref
+  \makeatletter
+  \providecommand\HyPL@Entry[1]{}
+    \AddToHook{env/document/begin}{%
+    \@ifpackageloaded{preview}{
+      \ifPreview
+        \let\Hy@FirstPageHook\relax
+        \let\Hy@EveryPageAnchor\relax
+      \fi
+    }{}}
+  \makeatother
+
+  % DEFINE FONT FOR USER INPUTTED TEXT
+  \newcommand{\entryfont}{}
+
+  \usepackage{pstricks}
+  \usepackage[pspdf={-dALLOWPSTRANSPARENCY},crop=off]{auto-pst-pdf}
+\else
+  \usepackage{pstricks}
+  \usepackage{fontspec}
+
+  % DEFINE FONT FOR USER INPUTTED TEXT
+  \newfontfamily\entryfont{Kalam}[Path=template/fonts/,Extension=.ttf,UprightFont=Kalam-Regular,BoldFont=Kalam-Bold]
+\fi
 
 % HEADER BACKGROUND COLOR AND OPACITY
 \newrgbcolor{header-background-color}{0.87058824 0.87450981 0.87450981}
