@@ -1,0 +1,5 @@
+\ProvidesFile{t1iklm.fd}
+\DeclareFontFamily{T1}{iklm}{}
+\DeclareFontShape{T1}{iklm}{l}{n}{ <-> iklmln8a }{}
+\DeclareFontShape{T1}{iklm}{m}{n}{ <-> iklmmn8a }{}
+\DeclareFontShape{T1}{iklm}{b}{n}{ <-> iklmbn8a }{}

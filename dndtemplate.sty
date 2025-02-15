@@ -5,6 +5,10 @@
 \usepackage{xstring}
 \usepackage{ragged2e}
 
+\ifpdf
+  \pdfmapfile{=t1iklm.map}
+\fi
+
 \ifpdftex
   % Work around incompatibility between preview and hyperref
   \makeatletter
@@ -19,10 +23,12 @@
   \makeatother
 
   % DEFINE FONT FOR USER INPUTTED TEXT
-  \newcommand{\entryfont}{}
+  \newcommand{\entryfont}{\fontfamily{iklm}\selectfont}
+
+  %\newcommand{\entryfont}{}
 
   \usepackage{pstricks}
-  \usepackage[pspdf={-dALLOWPSTRANSPARENCY},crop=off]{auto-pst-pdf}
+  \usepackage[dvips={-u +t1iklm.map},pspdf={-dALLOWPSTRANSPARENCY},latex={-interaction=nonstopmode},crop=off]{auto-pst-pdf}
 \else
   \usepackage{pstricks}
   \usepackage{fontspec}
