@@ -5,36 +5,46 @@
 \usepackage{xstring}
 \usepackage{ragged2e}
 
-\ifpdf
-  \pdfmapfile{=t1iklm.map}
-\fi
-
-\ifpdftex
-  % Work around incompatibility between preview and hyperref
-  \makeatletter
-  \providecommand\HyPL@Entry[1]{}
-    \AddToHook{env/document/begin}{%
-    \@ifpackageloaded{preview}{
-      \ifPreview
-        \let\Hy@FirstPageHook\relax
-        \let\Hy@EveryPageAnchor\relax
-      \fi
-    }{}}
-  \makeatother
-
-  % DEFINE FONT FOR USER INPUTTED TEXT
-  \newcommand{\entryfont}{\fontfamily{iklm}\selectfont}
-
-  %\newcommand{\entryfont}{}
-
-  \usepackage{pstricks}
-  \usepackage[dvips={-u +t1iklm.map},pspdf={-dALLOWPSTRANSPARENCY},latex={-interaction=nonstopmode},crop=off]{auto-pst-pdf}
-\else
+\ifluatex
   \usepackage{pstricks}
   \usepackage{fontspec}
 
   % DEFINE FONT FOR USER INPUTTED TEXT
   \newfontfamily\entryfont{Kalam}[Path=template/fonts/,Extension=.ttf,UprightFont=Kalam-Regular,BoldFont=Kalam-Bold]
+
+\else
+  \ifxetex
+    \usepackage{pstricks}
+    \usepackage{fontspec}
+
+    % DEFINE FONT FOR USER INPUTTED TEXT
+    \newfontfamily\entryfont{Kalam}[Path=template/fonts/,Extension=.ttf,UprightFont=Kalam-Regular,BoldFont=Kalam-Bold]
+
+  \else
+    \ifpdf
+      \pdfmapfile{=T1-Kalam.map}
+    \fi
+
+    \ifpdftex
+      % Work around incompatibility between preview and hyperref
+      \makeatletter
+      \providecommand\HyPL@Entry[1]{}
+        \AddToHook{env/document/begin}{%
+        \@ifpackageloaded{preview}{
+          \ifPreview
+            \let\Hy@FirstPageHook\relax
+            \let\Hy@EveryPageAnchor\relax
+          \fi
+        }{}}
+      \makeatother
+
+      % DEFINE FONT FOR USER INPUTTED TEXT
+      \newcommand{\entryfont}{\fontfamily{Kalam}\selectfont}
+
+      \usepackage{pstricks}
+      \usepackage[dvips={-u +T1-Kalam.map},pspdf={-dALLOWPSTRANSPARENCY},latex={-interaction=nonstopmode},crop=off,runs=2]{auto-pst-pdf}
+    \fi
+  \fi
 \fi
 
 % HEADER BACKGROUND COLOR AND OPACITY

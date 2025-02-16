@@ -1,0 +1,7 @@
+\ProvidesFile{t1kalam.fd}
+\DeclareFontFamily{T1}{Kalam}{}
+\DeclareFontShape{T1}{Kalam}{l}{n}{  <->   T1-Kalam-Light-t1 }{}
+\DeclareFontShape{T1}{Kalam}{m}{n}{  <->   T1-Kalam-Regular-t1 }{}
+\DeclareFontShape{T1}{Kalam}{b}{n}{  <->   T1-Kalam-Bold-t1 }{}
+
+
